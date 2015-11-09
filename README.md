@@ -5,6 +5,7 @@ Supports:
 
 - `<user>/<repo#<commit>`
 - `git://` and `.git` w/ `#commit` or `@version`
+- `git@` and `https:git@`
 - All 5 different ways you could download a freaking tarball/zipball
 
 [![Build status][ci-image] ][ci-url]
