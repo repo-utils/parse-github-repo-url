@@ -1,7 +1,7 @@
 
 var assert = require('assert')
 
-var parse = require('.')
+var parse = require('./')
 
 describe('versionless', function () {
   [
