@@ -37,3 +37,33 @@ describe('versioned', function () {
     })
   })
 })
+
+describe('url parse', function () {
+  var builtinUrlParse = require('url').parse
+
+  it('handles https:// url', function () {
+    var url = 'https://foo.com/bar'
+    var parsed = builtinUrlParse(url)
+    assert.equal('foo.com', parsed.hostname)
+  })
+
+  it('does not handle emails', function () {
+    var url = 'git@foo.com/bar'
+    var parsed = builtinUrlParse(url)
+    assert.equal(null, parsed.hostname, JSON.stringify(parsed))
+  })
+})
+
+describe('git @ syntax', function () {
+  it('works for git url', function () {
+    var url = 'git@github.com:bahmutov/lazy-ass.git'
+    var parsed = parse(url)
+    assert.deepEqual(['bahmutov', 'lazy-ass', ''], parsed)
+  });
+
+  it('works for https:git url', function () {
+    var url = 'https:git@github.com:bahmutov/lazy-ass.git'
+    var parsed = parse(url)
+    assert.deepEqual(['bahmutov', 'lazy-ass', ''], parsed)
+  });
+})

@@ -6,7 +6,14 @@ module.exports = function (string) {
   var m = /^([\w-]+)\/([\w-.]+)((?:#|@).+)?$/.exec(string)
   if (m) return format(m)
 
-  if (!~string.indexOf('://')) return false
+  // normalize git@ and https:git@ urls
+  string = string.replace(/^git@/, 'https://')
+  string = string.replace(/^https:git@/, 'https://')
+  string = string.replace('.com:', '.com/')
+
+  if (!~string.indexOf('://')) {
+    return false
+  }
   var url = parse(string)
 
   switch (url.hostname) {
