@@ -23,5 +23,5 @@ parse('component/emitter#1') // => ['component', 'emitter', '1']
 
 See the tests for all the different types of supported URLs.
 
-[ci-image]: https://travis-ci.org/bahmutov/parse-github-repo-url.png?branch=master
-[ci-url]: https://travis-ci.org/bahmutov/parse-github-repo-url
+[ci-image]: https://travis-ci.org/repo-utils/parse-github-repo-url.png?branch=master
+[ci-url]: https://travis-ci.org/repo-utils/parse-github-repo-url
