@@ -6,6 +6,7 @@ module.exports = function (string) {
   var m = /^([\w-]+)\/([\w-.]+)((?:#|@).+)?$/.exec(string)
   if (m) return format(m)
 
+  string = string.replace('//www.', '//')
   // normalize git@ and https:git@ urls
   string = string.replace(/^git@/, 'https://')
   string = string.replace(/^https:git@/, 'https://')

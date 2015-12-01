@@ -17,6 +17,18 @@ describe('versionless', function () {
       assert.deepEqual(['component', 'emitter', ''], parse(url))
     })
   })
+
+  it('works for www.github.com', function () {
+    var url = 'https://www.github.com/component/emitter'
+    var parsed = parse(url)
+    assert.deepEqual(['component', 'emitter', ''], parsed)
+  })
+
+  it('works for http://www.github.com', function () {
+    var url = 'http://www.github.com/component/emitter'
+    var parsed = parse(url)
+    assert.deepEqual(['component', 'emitter', ''], parsed)
+  })
 })
 
 describe('versioned', function () {
