@@ -2,6 +2,8 @@
 
 > Parse a GitHub URL for user/project@version
 
+[![Build Status](https://travis-ci.org/repo-utils/parse-github-repo-url.svg?branch=master)](https://travis-ci.org/repo-utils/parse-github-repo-url)
+
 # Features
 
 Parse all the stupid ways you could write a GitHub URL in your damn `package.json`.
