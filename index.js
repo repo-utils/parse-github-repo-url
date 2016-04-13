@@ -1,4 +1,3 @@
-
 var parse = require('url').parse
 
 module.exports = function (string) {
@@ -16,15 +15,6 @@ module.exports = function (string) {
     return false
   }
   var url = parse(string)
-
-  switch (url.hostname) {
-  case 'github.com':
-  case 'api.github.com':
-  case 'codeload.github.com':
-    break
-  default:
-    return false
-  }
 
   var path = url.pathname.replace(/\.git$/, '')
 
