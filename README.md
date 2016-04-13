@@ -5,7 +5,11 @@ Supports:
 
 - `<user>/<repo#<commit>`
 - `git://` and `.git` w/ `#commit` or `@version`
+- `git@` and `https:git@`
+- `www.github.com`
 - All 5 different ways you could download a freaking tarball/zipball
+
+[![Build status][ci-image] ][ci-url]
 
 ## API
 
@@ -19,3 +23,6 @@ parse('component/emitter#1') // => ['component', 'emitter', '1']
 ```
 
 See the tests for all the different types of supported URLs.
+
+[ci-image]: https://travis-ci.org/repo-utils/parse-github-repo-url.png?branch=master
+[ci-url]: https://travis-ci.org/repo-utils/parse-github-repo-url
