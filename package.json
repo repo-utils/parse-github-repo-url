@@ -18,8 +18,10 @@
     "semantic-release": "^4.3.5"
   },
   "main": "index.js",
+  "files": ["index.js"],
   "scripts": {
     "test": "mocha --reporter spec --bail",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
   }
 }
