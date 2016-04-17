@@ -23,7 +23,7 @@ Supports:
 `version` could be `false`y, a semantic version, a commit, or a branch, etc.
 
 ```js
-var parse = require('@bahmutov/parse-github-repo-url')
+var parse = require('parse-github-repo-url')
 parse('component/emitter#1') // => ['component', 'emitter', '1']
 ```
 
