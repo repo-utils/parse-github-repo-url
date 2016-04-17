@@ -1,7 +1,7 @@
 {
   "name": "parse-github-repo-url",
   "description": "Parse a GitHub URL for user/project@version",
-  "version": "1.2.0",
+  "version": "0.0.0-semantic-release",
   "author": {
     "name": "Jonathan Ong",
     "email": "me@jongleberry.com",
@@ -9,12 +9,17 @@
     "twitter": "https://twitter.com/jongleberry"
   },
   "license": "MIT",
-  "repository": "repo-utils/parse-github-repo-url",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/repo-utils/parse-github-repo-url.git"
+  },
   "devDependencies": {
-    "mocha": "1"
+    "mocha": "1",
+    "semantic-release": "^4.3.5"
   },
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec --bail"
+    "test": "mocha --reporter spec --bail",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   }
 }
