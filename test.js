@@ -72,6 +72,12 @@ describe('gitlab urls', function () {
     var parsed = parse(url)
     assert.deepEqual(['user', 'test1', ''], parsed)
   })
+
+  it('parses git gitlab url', function () {
+    var url = 'git@gitlab.team.com:user/test1.git'
+    var parsed = parse(url)
+    assert.deepEqual(['user', 'test1', ''], parsed)
+  })
 })
 
 describe('git @ syntax', function () {
