@@ -52,13 +52,13 @@ describe('versioned', function () {
 
 describe('dotted user', function () {
   [
-    'my.component/my.emitter',
-    'https://github.com/my.component/my.emitter',
-    'https://github.com/repos/my.component/my.emitter/tarball',
-    'https://codeload.github.com/my.component/my.emitter/legacy.zip',
+    'my.component/emitter',
+    'https://github.com/my.component/emitter',
+    'https://github.com/repos/my.component/emitter/tarball',
+    'https://codeload.github.com/my.component/emitter/legacy.zip',
   ].forEach(function (url) {
     it(url, function () {
-      assert.deepEqual(['my.component', 'my.emitter', ''], parse(url))
+      assert.deepEqual(['my.component', 'emitter', ''], parse(url))
     })
   })
 })
