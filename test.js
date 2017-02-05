@@ -50,6 +50,19 @@ describe('versioned', function () {
   })
 })
 
+describe('dotted user', function () {
+  [
+    'my.component/emitter',
+    'https://github.com/my.component/emitter',
+    'https://github.com/repos/my.component/emitter/tarball',
+    'https://codeload.github.com/my.component/emitter/legacy.zip',
+  ].forEach(function (url) {
+    it(url, function () {
+      assert.deepEqual(['my.component', 'emitter', ''], parse(url))
+    })
+  })
+})
+
 describe('url parse', function () {
   var builtinUrlParse = require('url').parse
 

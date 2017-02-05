@@ -2,7 +2,7 @@ var parse = require('url').parse
 
 module.exports = function (string) {
   // user/repo#version
-  var m = /^([\w-]+)\/([\w-.]+)((?:#|@).+)?$/.exec(string)
+  var m = /^([\w-.]+)\/([\w-.]+)((?:#|@).+)?$/.exec(string)
   if (m) return format(m)
 
   string = string.replace('//www.', '//')
@@ -19,17 +19,17 @@ module.exports = function (string) {
   var path = url.pathname.replace(/\.git$/, '')
 
   // https://www.npmjs.org/doc/json.html#Git-URLs-as-Dependencies
-  var m = /^\/([\w-]+)\/([\w-.]+)$/.exec(path)
+  var m = /^\/([\w-.]+)\/([\w-.]+)$/.exec(path)
   if (m) return m.slice(1, 3).concat((url.hash || '').slice(1))
 
   // archive link
   // https://developer.github.com/v3/repos/contents/#get-archive-link
-  var m = /^\/repos\/([\w-]+)\/([\w-.]+)\/(?:tarball|zipball)(\/.+)?$/.exec(path)
+  var m = /^\/repos\/([\w-.]+)\/([\w-.]+)\/(?:tarball|zipball)(\/.+)?$/.exec(path)
   if (m) return format(m)
 
   // codeload link
   // https://developer.github.com/v3/repos/contents/#response-4
-  var m = /^\/([\w-]+)\/([\w-.]+)\/(?:legacy\.(?:zip|tar\.gz))(\/.+)?$/.exec(path)
+  var m = /^\/([\w-.]+)\/([\w-.]+)\/(?:legacy\.(?:zip|tar\.gz))(\/.+)?$/.exec(path)
   if (m) return format(m)
 
   // tarball link
