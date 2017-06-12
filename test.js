@@ -87,9 +87,39 @@ describe('gitlab urls', function () {
   })
 
   it('parses git gitlab url', function () {
-    var url = 'git@gitlab.team.com:user/test1.git'
+    var url = 'git@gitlab.com:user/test1.git'
     var parsed = parse(url)
     assert.deepEqual(['user', 'test1', ''], parsed)
+  })
+
+  it('parses git gitlab url with one subgroup', function () {
+    var url = 'git@gitlab.com:user/subgroup/test1.git'
+    var parsed = parse(url)
+    assert.deepEqual(['user/subgroup', 'test1', ''], parsed)
+  })
+
+  it('parses git gitlab url with two nested subgroups', function () {
+    var url = 'git@gitlab.com:user/subgroup1/subgroup2/test1.git'
+    var parsed = parse(url)
+    assert.deepEqual(['user/subgroup1/subgroup2', 'test1', ''], parsed)
+  })
+
+  it('parses git gitlab url with three nested subgroups', function () {
+    var url = 'git@gitlab.com:user/subgroup1/subgroup2/subgroup3/test1.git'
+    var parsed = parse(url)
+    assert.deepEqual(['user/subgroup1/subgroup2/subgroup3', 'test1', ''], parsed)
+  })
+
+  it('parses git hosted gitlab url with subgroups', function () {
+    var url = 'git@gitlab.team.com:user/subgroup1/subgroup2/subgroup3/test1.git'
+    var parsed = parse(url)
+    assert.deepEqual(['user/subgroup1/subgroup2/subgroup3', 'test1', ''], parsed)
+  })
+
+  it('cannot parse subgroups in non-gitlab URLs', function () {
+    var url = 'git@stash.local:user/subgroup1/subgroup2/subgroup3/test1.git'
+    var parsed = parse(url)
+    assert.equal(false, parsed)
   })
 })
 

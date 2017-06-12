@@ -37,6 +37,17 @@ module.exports = function (string) {
   var m = /^\/([\w-]+)\/([\w-.]+)\/archive\/(.+)\.tar\.gz?$/.exec(path)
   if (m) return m.slice(1, 4)
 
+  // https://docs.gitlab.com/ce/user/group/subgroups/
+  if (~url.host.indexOf('gitlab')) {
+    var m = /^\/((?:[\w-.]+\/)+)([\w-.]+)$/.exec(path)
+    if (m) {
+      m = m.slice(1, 3);
+      // remove slash at the end
+      m[0] = m[0].slice(0, -1);
+      return m.concat((url.hash || '').slice(1));
+    }
+  }
+
   return false
 }
 
